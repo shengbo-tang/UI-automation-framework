@@ -11,6 +11,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from element_infos.login_page import LoginPage
+from common.log_utils import logger
 
 
 class MainPage:
@@ -28,16 +29,20 @@ class MainPage:
 
     def get_companyname(self):   # 获取公司名称
         value = self.companyname_showbox.get_attribute('title')
+        logger.info('获取到公司名称 [%s]' % value)
         return value
 
     def goto_myzone(self):   # 选择我的地盘
         self.myzone_menu.click()
+        logger.info('进入到我的地盘')
 
     def goto_product(self):
         self.product_menu.click()
+        logger.info('点击产品按钮')
 
     def get_username(self):
         value = self.user_showbox.text
+        logger.info('获取到用户名 [%s]' % value)
         return value
 
 

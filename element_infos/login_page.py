@@ -14,7 +14,7 @@ from common.log_utils import logger
 
 
 current_path = os.path.dirname(__file__)
-driver_path = os.path.join(current_path, '../webdriver/chromedriver.exe')
+driver_path = os.path.join(current_path, '../webdriver/chromedriver')
 
 
 class LoginPage:

@@ -48,5 +48,7 @@ class MainPage:
 
 if __name__ == '__main__':
     main_page = MainPage()
+    main_page.goto_myzone()
+    main_page.goto_product()
     username = main_page.get_username()
     print(username)

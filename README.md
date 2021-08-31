@@ -97,3 +97,16 @@ pageobject模式是实例化页面之后，需要识别所有的元素，然后�
 3、把读取Excel的代码封装element_data_utils.py文件中
 
 4、步骤4：改造LoginPage，从Excel中拿元素识别数据
+
+---
+### 框架04--driver的二次封装及页面类的拆分
+
+**要点**
+
+1、增加了config文件夹，并在其中增加config.ini配置文件
+
+2、封装config_utils.py读取.ini文件的底层方法
+
+3、封装了browser.py 浏览器类，用来提取driver
+
+

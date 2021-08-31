@@ -13,6 +13,8 @@ from selenium.webdriver.common.by import By
 from common.log_utils import logger
 from common.base_page import BasePage
 from common.element_data_utils import ElementDataUtils
+from common.config_utils import local_config
+from common.browser import Browser
 
 current_path = os.path.dirname(__file__)
 driver_path = os.path.join(current_path, '../webdriver/chromedriver.exe')
@@ -45,11 +47,9 @@ class LoginPage(BasePage):
 
 
 if __name__ == '__main__':
-    current_path = os.path.dirname(__file__)
-    driver_path = os.path.join(current_path, '../webdriver/chromedriver.exe')
-    driver = webdriver.Chrome(executable_path=driver_path)
+    driver = Browser().get_driver()
     login_page = LoginPage(driver)
-    login_page.open_url('http://47.107.178.45/zentao/www/index.php?m=user&f=loginz')
+    login_page.open_url(local_config.get_url)
     login_page.set_browser_max()
     login_page.input_username('test01')
     login_page.input_password('newdream123')

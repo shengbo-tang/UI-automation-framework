@@ -149,3 +149,27 @@
 2021-08-31 22:50:43,704 - login_page.py[line:54] - INFO: 密码输入框输入：newdream123
 2021-08-31 22:50:43,745 - base_page.py[line:78] - INFO: [登录按钮] 元素进行点击操作
 2021-08-31 22:50:43,745 - login_page.py[line:59] - INFO: 点击登录按钮
+2021-08-31 23:59:31,826 - base_page.py[line:27] - INFO: 打开url地址：[http://47.107.178.45/zentao/www/index.php?m=user&f=loginz]
+2021-08-31 23:59:31,990 - base_page.py[line:31] - INFO: 浏览器最大化
+2021-08-31 23:59:32,029 - base_page.py[line:72] - INFO: [用户名输入框] 输入框输入内容： test01
+2021-08-31 23:59:32,029 - login_page.py[line:37] - INFO: 用户名输入框输入：test01
+2021-08-31 23:59:32,095 - base_page.py[line:72] - INFO: [密码输入框] 输入框输入内容： newdream123
+2021-08-31 23:59:32,095 - login_page.py[line:41] - INFO: 密码输入框输入：newdream123
+2021-08-31 23:59:32,141 - base_page.py[line:78] - INFO: [登录按钮] 元素进行点击操作
+2021-08-31 23:59:32,141 - login_page.py[line:45] - INFO: 点击登录按钮
+2021-09-01 00:05:47,961 - base_page.py[line:27] - INFO: 打开url地址：[http://47.107.178.45/zentao/www/index.php?m=user&f=loginz]
+2021-09-01 00:05:48,081 - base_page.py[line:31] - INFO: 浏览器最大化
+2021-09-01 00:05:48,137 - base_page.py[line:72] - INFO: [用户名输入框] 输入框输入内容： test01
+2021-09-01 00:05:48,137 - login_page.py[line:38] - INFO: 用户名输入框输入：test01
+2021-09-01 00:05:48,230 - base_page.py[line:72] - INFO: [密码输入框] 输入框输入内容： newdream123
+2021-09-01 00:05:48,230 - login_page.py[line:42] - INFO: 密码输入框输入：newdream123
+2021-09-01 00:05:48,318 - base_page.py[line:78] - INFO: [登录按钮] 元素进行点击操作
+2021-09-01 00:05:48,318 - login_page.py[line:46] - INFO: 点击登录按钮
+2021-09-01 00:21:04,945 - base_page.py[line:27] - INFO: 打开url地址：[http://47.107.178.45/zentao/www/index.php?m=user&f=loginz]
+2021-09-01 00:21:05,073 - base_page.py[line:31] - INFO: 浏览器最大化
+2021-09-01 00:21:05,104 - base_page.py[line:72] - INFO: [用户名输入框] 输入框输入内容： test01
+2021-09-01 00:21:05,104 - login_page.py[line:38] - INFO: 用户名输入框输入：test01
+2021-09-01 00:21:05,187 - base_page.py[line:72] - INFO: [密码输入框] 输入框输入内容： newdream123
+2021-09-01 00:21:05,187 - login_page.py[line:42] - INFO: 密码输入框输入：newdream123
+2021-09-01 00:21:05,225 - base_page.py[line:78] - INFO: [登录按钮] 元素进行点击操作
+2021-09-01 00:21:05,225 - login_page.py[line:46] - INFO: 点击登录按钮

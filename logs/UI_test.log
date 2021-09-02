@@ -173,3 +173,19 @@
 2021-09-01 00:21:05,187 - login_page.py[line:42] - INFO: 密码输入框输入：newdream123
 2021-09-01 00:21:05,225 - base_page.py[line:78] - INFO: [登录按钮] 元素进行点击操作
 2021-09-01 00:21:05,225 - login_page.py[line:46] - INFO: 点击登录按钮
+2021-09-01 23:28:26,457 - base_page.py[line:27] - INFO: 打开url地址：[http://47.107.178.45/zentao/www/index.php?m=user&f=loginz]
+2021-09-01 23:28:26,628 - base_page.py[line:31] - INFO: 浏览器最大化
+2021-09-01 23:28:26,680 - base_page.py[line:72] - INFO: [用户名输入框] 输入框输入内容： test01
+2021-09-01 23:28:26,680 - login_page.py[line:38] - INFO: 用户名输入框输入：test01
+2021-09-01 23:28:26,763 - base_page.py[line:72] - INFO: [密码输入框] 输入框输入内容： newdream123
+2021-09-01 23:28:26,764 - login_page.py[line:42] - INFO: 密码输入框输入：newdream123
+2021-09-01 23:28:26,808 - base_page.py[line:78] - INFO: [登录按钮] 元素进行点击操作
+2021-09-01 23:28:26,809 - login_page.py[line:46] - INFO: 点击登录按钮
+2021-09-02 22:30:52,840 - base_page.py[line:27] - INFO: 打开url地址：[http://47.107.178.45/zentao/www/index.php?m=user&f=loginz]
+2021-09-02 22:30:52,993 - base_page.py[line:31] - INFO: 浏览器最大化
+2021-09-02 22:30:53,037 - base_page.py[line:72] - INFO: [用户名输入框] 输入框输入内容： test01
+2021-09-02 22:30:53,037 - login_page.py[line:38] - INFO: 用户名输入框输入：test01
+2021-09-02 22:30:53,108 - base_page.py[line:72] - INFO: [密码输入框] 输入框输入内容： newdream123
+2021-09-02 22:30:53,108 - login_page.py[line:42] - INFO: 密码输入框输入：newdream123
+2021-09-02 22:30:53,151 - base_page.py[line:78] - INFO: [登录按钮] 元素进行点击操作
+2021-09-02 22:30:53,151 - login_page.py[line:46] - INFO: 点击登录按钮

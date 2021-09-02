@@ -16,9 +16,6 @@ from common.element_data_utils import ElementDataUtils
 from common.config_utils import local_config
 from common.browser import Browser
 
-current_path = os.path.dirname(__file__)
-driver_path = os.path.join(current_path, '../webdriver/chromedriver.exe')
-
 
 class LoginPage(BasePage):
 
@@ -28,7 +25,7 @@ class LoginPage(BasePage):
         super().__init__(driver)
         # 方法二：
         # BasePage.__init__(self, driver)
-        element = ElementDataUtils('login_page').get_element_info()
+        element = ElementDataUtils('login', 'login_page').get_element_info()
         self.username_inputbox = element['username_inputbox']
         self.password_inputbox = element['password_inputbox']
         self.login_button = element['login_button']

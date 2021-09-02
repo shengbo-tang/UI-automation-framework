@@ -50,11 +50,20 @@ class Browser:
         return driver
 
     def __get_firefox_driver(self):
+        """
+        封装firefox浏览器
+        :return:
+        """
         firefox_driver_path = os.path.join(self.driver_path, 'geckodriver.exe')
         driver = webdriver.Firefox(executable_path=firefox_driver_path)
         return driver
 
     def __get_edge_driver(self):
+        """
+        封装edge浏览器
+        :return:
+        """
         edge_driver_path = os.path.join(self.driver_path, 'msedgedriver.exe')
         driver = webdriver.Edge(executable_path=edge_driver_path)
         return driver
+

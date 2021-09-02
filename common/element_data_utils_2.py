@@ -7,7 +7,7 @@
 @Date   ：2021/8/30 23:48
 =================================================="""
 
-# 元素识别信息读取工具类
+# 元素识别信息读取工具类 -- 方法二
 import os
 import time
 
@@ -19,7 +19,7 @@ excel_path = os.path.join(current_path, '../element_info_datas/element_info_data
 
 class ElementDataUtils:
 
-    def __init__(self, module_name, page_name, excel_path=excel_path):
+    def __init__(self, module_name, excel_path=excel_path):
         """
         初始化Excel文件
         :param page_name:
@@ -29,16 +29,15 @@ class ElementDataUtils:
         self.workbook = xlrd.open_workbook(self.excel_path)
         self.sheet = self.workbook.sheet_by_name(module_name)
         self.row_count = self.sheet.nrows
-        self.page_name = page_name
 
-    def get_element_info(self):
+    def get_element_info(self, page_name):
         """
         组装数据字典信息
         :return:
         """
         element_infos = {}
         for i in range(1, self.row_count):
-            if self.sheet.cell_value(i, 2) == self.page_name:
+            if self.sheet.cell_value(i, 2) == page_name:
                 element_info = {
                     'element_name': self.sheet.cell_value(i, 1),
                     'locator_type': self.sheet.cell_value(i, 3),
@@ -50,5 +49,5 @@ class ElementDataUtils:
 
 
 if __name__ == '__main__':
-    element = ElementDataUtils('login', 'login_page').get_element_info()
+    element = ElementDataUtils('login').get_element_info('login_page')
     print(element)

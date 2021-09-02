@@ -22,6 +22,7 @@ class BasePage:
         # self.driver = webdriver.Chrome()
         self.driver = driver
 
+    # 浏览器基础封装
     def open_url(self, url):
         self.driver.get(url)
         logger.info('打开url地址：[%s]' % url)
@@ -62,6 +63,7 @@ class BasePage:
             locator_type = By.TAG_NAME
         element = WebDriverWait(self.driver, locator_timeout).\
             until(lambda x: x.find_element(locator_type, locator_value_info))
+        logger.info('[%s] 元素识别成功' % element_info['element_name'])
         return element
 
     # 元素的操作
@@ -69,7 +71,7 @@ class BasePage:
     def input(self, element_info, content):
         element = self.find_element(element_info)
         element.send_keys(content)
-        logger.info('[%s] 输入框输入内容： %s' % (element_info['element_name'], content))
+        logger.info('[%s] 输入框输入内容： [%s]' % (element_info['element_name'], content))
 
     # 元素点击操作
     def click(self, element_info):

@@ -110,3 +110,10 @@ pageobject模式是实例化页面之后，需要识别所有的元素，然后�
 3、封装了browser.py 浏览器类，用来提取driver
 
 
+**步骤**
+
+1、element_data_utils_2.py 方法二读取Excel文件方式
+
+**小结：** 动态变化的数据，通过业务数据来识别
+
+

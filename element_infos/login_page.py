@@ -51,5 +51,6 @@ if __name__ == '__main__':
     login_page.input_username('test01')
     login_page.input_password('newdream123')
     login_page.click_login()
+    login_page.screenshot_as_file()
 
 

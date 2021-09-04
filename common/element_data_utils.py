@@ -10,7 +10,7 @@
 # 元素识别信息读取工具类
 import os
 import time
-
+from common.config_utils import local_config
 import xlrd
 
 current_path = os.path.dirname(__file__)
@@ -42,9 +42,17 @@ class ElementDataUtils:
                 element_info = {
                     'element_name': self.sheet.cell_value(i, 1),
                     'locator_type': self.sheet.cell_value(i, 3),
-                    'locator_value': self.sheet.cell_value(i, 4),
-                    'timeout': self.sheet.cell_value(i, 5)
+                    'locator_value': self.sheet.cell_value(i, 4)
                 }
+                # 方法1：
+                # timeout_value = self.sheet.cell_value(i ,5)
+                # if element_info['timeout'] == '':
+                #     timeout_value = 5.0
+                # else:
+                #     element_info['timeout'] = timeout_value
+                # 方法2：通过类型来判定
+                time_value = self.sheet.cell_value(i, 5)
+                element_info['timeout'] = time_value if isinstance(time_value, float) else local_config.time_out
                 element_infos[self.sheet.cell_value(i, 0)] = element_info
         return element_infos
 

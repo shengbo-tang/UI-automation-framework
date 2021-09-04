@@ -11,10 +11,11 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from element_infos.login_page import LoginPage
+from common.browser import Browser
 from common.log_utils import logger
 
 
-class MainPage:
+class MainPage(Browser):
 
     def __init__(self):
         login_page = LoginPage()  # 创建一个页面对象

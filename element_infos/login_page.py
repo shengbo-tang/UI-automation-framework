@@ -42,6 +42,10 @@ class LoginPage(BasePage):
         self.click(self.login_button)
         logger.info('点击登录按钮')
 
+    # 如果用户名密码错误，点击提示框中的确定，并返回提示内容
+    def get_login_fail_alert_content(self):
+        return self.switch_to_alert()
+
 
 if __name__ == '__main__':
     driver = Browser().get_driver()

@@ -69,11 +69,11 @@ class BasePage:
         logger.info('获取网页源代码, 代码为 [%s]' % value)
         return value
 
-    def tab_close(self):
+    def close_tab(self):
         self.driver.close()
         logger.info('关闭当前tab页')
 
-    def browser_quite(self):
+    def quite(self):
         self.driver.quit()
         logger.info('退出浏览器')
 

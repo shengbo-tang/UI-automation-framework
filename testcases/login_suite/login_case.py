@@ -11,20 +11,10 @@ from common.browser import Browser
 from common.base_page import BasePage
 from common.config_utils import local_config
 from actions.login_action import LoginAction
+from common.selenium_base_case import SeleniumBaseCase
 
 
-class LoginCase(unittest.TestCase):
-
-    def setUp(self) -> None:
-        self.driver = Browser().get_driver()
-        self.base_page = BasePage(self.driver)
-        self.base_page.set_browser_max()
-        self.base_page.implicitly_wait(10)
-        self.base_page.open_url(local_config.get_url)
-
-    def tearDown(self) -> None:
-        self.base_page.wait(5)
-        self.base_page.quite()
+class LoginCase(SeleniumBaseCase):
 
     def test_login_success(self):
         login_action = LoginAction(self.base_page.driver)

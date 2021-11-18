@@ -141,7 +141,7 @@ class BasePage:
         :param element_info:
         :return:
         """
-        element = self.driver.find_element(element_info)
+        element = self.find_element(element_info)
         self.wait(2)
         element.clear()
         logger.info('[%s] 元素进行清除操作' % element_info['element_name'])
@@ -199,6 +199,10 @@ class BasePage:
             element = self.find_element(element_dict['element'])
             self.driver.switch_to.frame(element)
         logger.info('浏览器切换框架')
+
+    def switch_to_default_frame(self):
+        self.driver.switch_to.default_content()
+        logger.info('切换到原来的frame')
 
     # 切句柄
     # 获取当前窗口句柄的封装

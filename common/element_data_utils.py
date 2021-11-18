@@ -58,5 +58,5 @@ class ElementDataUtils:
 
 
 if __name__ == '__main__':
-    element = ElementDataUtils('main', 'main_page').get_element_info()
+    element = ElementDataUtils('bug', 'bug_page').get_element_info()
     print(element)

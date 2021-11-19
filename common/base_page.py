@@ -17,12 +17,22 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from common.log_utils import logger
 from common.config_utils import local_config
+"""
+BasePage():页面基础类
+作用：把每个页面的公共操作分离出来
+1、封装浏览器操作
+2、封装元素识别
+3、封装元素识别
+"""
 
 
 # 启动浏览器后，把driver 传给BasePage
 class BasePage:
 
     def __init__(self, driver):
+        """
+        :param driver: 初始化webdriver驱动
+        """
         # self.driver = webdriver.Chrome()
         self.driver = driver
 

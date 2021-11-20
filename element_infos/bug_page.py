@@ -65,7 +65,6 @@ class BugPage(BasePage):
         logger.info('选择Bug所属项目')
 
     def double_click_bug_version_select(self):
-        self.wait(2)
         self.double_click(self.bug_version_select)
         logger.info('点击bug影响版本下拉框')
 

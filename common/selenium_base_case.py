@@ -10,6 +10,7 @@ import unittest
 from common.browser import Browser
 from common.base_page import BasePage
 from common.config_utils import local_config
+from common.log_utils import logger
 
 
 class SeleniumBaseCase(unittest.TestCase):
@@ -19,6 +20,8 @@ class SeleniumBaseCase(unittest.TestCase):
         cls.url = local_config.get_url
 
     def setUp(self) -> None:
+        logger.info('')
+        logger.info('----------开始执行测试类----------')
         self.driver = Browser().get_driver()
         self.base_page = BasePage(self.driver)
         self.base_page.set_browser_max()
@@ -28,4 +31,4 @@ class SeleniumBaseCase(unittest.TestCase):
     def tearDown(self) -> None:
         self.base_page.wait(2)
         self.base_page.quite()
-
+        logger.info('----------用例执行完毕，关闭浏览器----------')

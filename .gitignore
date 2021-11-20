@@ -1,2 +1,2 @@
-logs/*
-screen_shot/*
+logs/*.log
+screen_shot/*.png

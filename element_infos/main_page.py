@@ -10,6 +10,7 @@ import os
 import time
 from common.element_data_utils import ElementDataUtils
 from common.base_page import BasePage
+from common.log_utils import logger
 
 
 class MainPage(BasePage):
@@ -23,16 +24,20 @@ class MainPage(BasePage):
 
     def goto_myzone(self):
         self.click(self.myzone_link)
+        logger.info('点击我的地盘')
 
     def get_username(self):
         value = self.get_text(self.user_menu)
+        logger.info('获取当前用户名，用户名为 [%s]' % value)
         return value
 
     # 点击用户菜单
     def click_username(self):
         self.click(self.user_menu)
+        logger.info('点击用户菜单')
 
     # 点击退出按钮
     def click_quit_button(self):
         self.click(self.quit_button)
+        logger.info('点击退出登录按钮')
 

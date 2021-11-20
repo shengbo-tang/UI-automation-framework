@@ -212,7 +212,7 @@ class BasePage:
 
     def switch_to_default_frame(self):
         self.driver.switch_to.default_content()
-        logger.info('切换到原来的frame')
+        logger.info('切换到默认frame')
 
     # 切句柄
     # 获取当前窗口句柄的封装
@@ -345,4 +345,4 @@ class BasePage:
         current_dir = os.path.dirname(__file__)
         filename = os.path.join(current_dir, '..', screenshot_path, 'UItest%s.png' % now)
         self.driver.save_screenshot(filename)
-
+        logger.info('UI自动化执行报错，截图保留，文件名 [%s]' % filename)

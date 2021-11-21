@@ -17,6 +17,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from common.log_utils import logger
 from common.config_utils import local_config
+from common import HTMLTestReportCN
 """
 BasePage():页面基础类
 作用：把每个页面的公共操作分离出来
@@ -363,7 +364,7 @@ class BasePage:
             self.driver.execute_script(js_str)
 
     # 截图的封装
-    def screenshot_as_file(self, *screenshot_path):
+    def screenshot_as_file_old(self, *screenshot_path):
         if len(screenshot_path) == 0:  # 没有传地址，存放默认路径下
             screenshot_path = local_config.screen_shot_path
         else:
@@ -373,3 +374,10 @@ class BasePage:
         filename = os.path.join(current_dir, '..', screenshot_path, 'UItest%s.png' % now)
         self.driver.save_screenshot(filename)
         logger.info('UI自动化执行报错，截图保留，文件名 [%s]' % filename)
+
+    # HTMLTestReportCN 自带的截图，截图放测试报告中
+    def screenshot_as_file(self):
+        report_path = os.path.join(os.path.dirname(__file__), '..', local_config.report_path)
+        report_dir = HTMLTestReportCN.ReportDirectory(report_path)
+        report_dir.get_screenshot(self.driver)
+        logger.info('UI自动化执行报错，截图保留')

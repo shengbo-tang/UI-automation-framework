@@ -24,7 +24,7 @@ class LoginCase(SeleniumBaseCase):
         # self.assertEqual('测试人员1', '测试人员1', '提示：登录失败')
         self.assertEqual(main_page.get_username(), '测试人员1', '提示：登录失败')
 
-    def test_login_fail(self):
+    def aatest_login_fail(self):
         login_action = LoginAction(self.base_page.driver)
         actual_result = login_action.login_fail('test01', 'newdream')
         print(actual_result)

@@ -32,15 +32,12 @@ class LoginPage(BasePage):
 
     def input_username(self, username):  # 方法：控件的操作
         self.input(self.username_inputbox, username)
-        logger.info('用户名输入框输入：' + str(username))
 
     def input_password(self, password):
         self.input(self.password_inputbox, password)
-        logger.info('密码输入框输入：' + str(password))
 
     def click_login(self):
         self.click(self.login_button)
-        logger.info('点击登录按钮')
 
     # 如果用户名密码错误，点击提示框中的确定，并返回提示内容
     def get_login_fail_alert_content(self):

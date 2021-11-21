@@ -6,12 +6,12 @@
 @Email  : t975426031@163.com
 @Date   ：2021/8/30 23:48
 =================================================="""
-
 # 元素识别信息读取工具类
 import os
 import time
-from common.config_utils import local_config
 import xlrd
+from common.config_utils import local_config
+from common.log_utils import logger
 
 current_path = os.path.dirname(__file__)
 excel_path = os.path.join(current_path, '../element_info_datas/element_info_datas.xlsx')
@@ -27,6 +27,7 @@ class ElementDataUtils:
         """
         self.excel_path = excel_path
         self.workbook = xlrd.open_workbook(self.excel_path)
+        logger.info('打开元素识别信息excel: [%s]' % self.excel_path)
         self.sheet = self.workbook.sheet_by_name(module_name)
         self.row_count = self.sheet.nrows
         self.page_name = page_name
@@ -54,6 +55,7 @@ class ElementDataUtils:
                 time_value = self.sheet.cell_value(i, 5)
                 element_info['timeout'] = time_value if isinstance(time_value, float) else local_config.time_out
                 element_infos[self.sheet.cell_value(i, 0)] = element_info
+        logger.info('已成功从excel表中读取元素识别数据')
         return element_infos
 
 

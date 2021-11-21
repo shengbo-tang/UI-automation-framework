@@ -89,42 +89,53 @@ class BasePage:
 
     # 元素的识别，通过分离处理的元素识别字典信息，返回一个元素
     def find_element(self, element_info):
-        locator_type_name = element_info['locator_type']
-        locator_value_info = element_info['locator_value']
-        locator_timeout = element_info['timeout']
-        if locator_type_name == 'name':
-            locator_type = By.NAME
-        elif locator_type_name == 'id':
-            locator_type = By.ID
-        elif locator_type_name == 'xpath':
-            locator_type = By.XPATH
-        elif locator_type_name == 'css_selector':
-            locator_type = By.CSS_SELECTOR
-        elif locator_type_name == 'class_name':
-            locator_type = By.CLASS_NAME
-        elif locator_type_name == 'partial_link_text':
-            locator_type = By.PARTIAL_LINK_TEXT
-        elif locator_type_name == 'link_text':
-            locator_type = By.LINK_TEXT
-        elif locator_type_name == 'tag_name':
-            locator_type = By.TAG_NAME
-        element = WebDriverWait(self.driver, locator_timeout).\
-            until(lambda x: x.find_element(locator_type, locator_value_info))
-        logger.info('[%s] 元素识别成功' % element_info['element_name'])
+        element = None
+        try:
+            locator_type_name = element_info['locator_type']
+            locator_value_info = element_info['locator_value']
+            locator_timeout = element_info['timeout']
+            if locator_type_name == 'name':
+                locator_type = By.NAME
+            elif locator_type_name == 'id':
+                locator_type = By.ID
+            elif locator_type_name == 'xpath':
+                locator_type = By.XPATH
+            elif locator_type_name == 'css_selector':
+                locator_type = By.CSS_SELECTOR
+            elif locator_type_name == 'class_name':
+                locator_type = By.CLASS_NAME
+            elif locator_type_name == 'partial_link_text':
+                locator_type = By.PARTIAL_LINK_TEXT
+            elif locator_type_name == 'link_text':
+                locator_type = By.LINK_TEXT
+            elif locator_type_name == 'tag_name':
+                locator_type = By.TAG_NAME
+            element = WebDriverWait(self.driver, locator_timeout).\
+                until(lambda x: x.find_element(locator_type, locator_value_info))
+            logger.info('[%s] 元素识别成功' % element_info['element_name'])
+        except Exception as e:
+            logger.error('[%s] 元素识别不成功' % element_info['element_name'])
+            self.screenshot_as_file()   # 元素识别错误，截图保存
         return element
 
     # 元素的操作
     # 封装元素输入操作
     def input(self, element_info, content):
-        element = self.find_element(element_info)
-        element.send_keys(content)
-        logger.info('[%s] 输入框输入内容： [%s]' % (element_info['element_name'], content))
+        try:
+            element = self.find_element(element_info)
+            element.send_keys(content)
+            logger.info('[%s] 输入框输入内容： [%s]' % (element_info['element_name'], content))
+        except Exception as e:
+            logger.error('[%s] 元素输入数据错误，错误为 [%s]' % (element_info['element_name'], e.__str__()))
 
     # 元素点击操作
     def click(self, element_info):
-        element = self.find_element(element_info)
-        element.click()
-        logger.info('[%s] 元素进行点击操作' % element_info['element_name'])
+        try:
+            element = self.find_element(element_info)
+            element.click()
+            logger.info('[%s] 元素进行点击操作' % element_info['element_name'])
+        except Exception as e:
+            logger.error('[%s] 元素点击操作失败，原因是 [%s]' % (element_info['element_name'], e.__str__()))
 
     def double_click(self, element_info):
         """
@@ -139,10 +150,13 @@ class BasePage:
 
     # 获取文本信息
     def get_text(self, element_info):
-        element = self.find_element(element_info)
-        text = element.text
-        logger.info('获取文本信息 [%s]' % text)
-        # logger.error('元素识别失败，未能获取到元素信息，错误信息为：[%s]' % e.__str__())
+        text = None
+        try:
+            element = self.find_element(element_info)
+            text = element.text
+            logger.info('获取文本信息 [%s]' % text)
+        except Exception as e:
+            logger.error('元素识别失败，未能获取到元素信息，错误信息为：[%s]' % e.__str__())
         return text
 
     def clear(self, element_info):
@@ -151,30 +165,42 @@ class BasePage:
         :param element_info:
         :return:
         """
-        element = self.find_element(element_info)
-        self.wait(2)
-        element.clear()
-        logger.info('[%s] 元素进行清除操作' % element_info['element_name'])
+        try:
+            element = self.find_element(element_info)
+            self.wait(2)
+            element.clear()
+            logger.info('[%s] 元素进行清除操作' % element_info['element_name'])
+        except Exception as e:
+            logger.error('元素识别失败，未能清除元素框内内容，错误信息为 [%s]' % e.__str__())
 
     # 鼠标键盘封装 -- 鼠标移动到一个元素上
     def move_to_element_by_mouse(self, element_info):
-        el = self.find_element(element_info)
-        ActionChains(self.driver).move_to_element(el).perform()
-        self.wait(2)
-        logger.info('鼠标移动到 [%s] 元素上' % element_info)
+        try:
+            el = self.find_element(element_info)
+            ActionChains(self.driver).move_to_element(el).perform()
+            self.wait(2)
+            logger.info('鼠标移动到 [%s] 元素上' % element_info)
+        except Exception as e:
+            logger.error('元素识别失败，鼠标未能移动到元素上，错误信息为 [%s]' % e.__str__())
 
     # 鼠标长按不松的封装
     def long_press_element(self, element_info, seconds):
-        el = self.find_element(element_info)
-        ActionChains(self.driver).click_and_hold(el).pause(seconds).perform()
-        logger.info('鼠标长按 [%s] 元素 [%s] 秒' % (element_info, seconds))
+        try:
+            el = self.find_element(element_info)
+            ActionChains(self.driver).click_and_hold(el).pause(seconds).perform()
+            logger.info('鼠标长按 [%s] 元素 [%s] 秒' % (element_info, seconds))
+        except Exception as e:
+            logger.error('元素识别失败，未能长按该元素，错误信息为 [%s]' % e.__str__())
 
     # 鼠标右击操作封装
     def right_click_element(self, element_info):
-        el = self.find_element(element_info)
-        ActionChains(self.driver).context_click(el).perform()
-        self.wait(2)
-        logger.info('鼠标右击 [%s] 元素' % element_info)
+        try:
+            el = self.find_element(element_info)
+            ActionChains(self.driver).context_click(el).perform()
+            self.wait(2)
+            logger.info('鼠标右击 [%s] 元素' % element_info)
+        except Exception as e:
+            logger.error('元素识别失败，未能右击该元素，错误信息为 [%s]' % e.__str__())
 
     # 键盘的封装
     def ctrl_v(self):
@@ -210,6 +236,7 @@ class BasePage:
             self.driver.switch_to.frame(element)
         logger.info('浏览器切换框架')
 
+    # 切换回默认框架
     def switch_to_default_frame(self):
         self.driver.switch_to.default_content()
         logger.info('切换到默认frame')

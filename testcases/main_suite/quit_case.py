@@ -18,13 +18,15 @@ from common.test_data_utils import TestDataUtils
 
 class QuitCase(SeleniumBaseCase):
 
+    test_class_data = TestDataUtils('main_suite', 'QuitTest').convert_exceldata_to_testdata()
+
     def setUp(self) -> None:
         super().setUp()
-        self.test_class_data = TestDataUtils('main_suite', 'QuitTest').convert_exceldata_to_testdata()
 
+    @unittest.skipIf(test_class_data['test_quit']['is_not'], '条件为真跳过')
     def test_quit(self):
         test_function_data = self.test_class_data['test_quit']
-        self._testMethodDoc = test_function_data['test_name']  # 测试用例备注
+        self._testMethodDoc = test_function_data['test_name'] + str(test_function_data['is_not'])  # 测试用例备注
         login_action = LoginAction(self.base_page.driver)   # 登录的动作对象
         main_page = login_action.default_login()   # 默认登录之后返回主页面
         quit_action = QuitAction(main_page.driver)   # 提出动作对象

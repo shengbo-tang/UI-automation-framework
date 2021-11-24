@@ -29,7 +29,7 @@ class TestDataUtils:
             if self.excel_data[i][2].__eq__(self.test_class_name):
                 test_data_info['test_name'] = self.excel_data[i][1]
                 # test_data_info['is_not']=self.excel_data[i][3]
-                test_data_info['is_not'] = False if self.excel_data[i][3].__eq__('是') else True
+                test_data_info['is_not'] = False if self.excel_data[i][3].__eq__('是') else True     # 判断用例是否执行
                 test_data_info['excepted_result'] = self.excel_data[i][4]
                 test_parameter = {}
                 for j in range(5, len(self.excel_data[i])):  # 每行列的数量len(self.excel_data[i]
@@ -42,7 +42,7 @@ class TestDataUtils:
 
 
 if __name__ == "__main__":
-    infos = TestDataUtils('bug_suite', 'CommitbugTest').convert_exceldata_to_testdata()
+    infos = TestDataUtils('login_suite', 'LoginCase').convert_exceldata_to_testdata()
     for i in infos.items():
         print(i)
     # for k, v in infos.items():

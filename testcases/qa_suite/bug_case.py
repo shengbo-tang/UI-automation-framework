@@ -14,16 +14,17 @@ from actions.login_action import LoginAction
 from common.test_data_utils import TestDataUtils
 
 
-
 class CommitBug(SeleniumBaseCase):
+
+    test_class_data = TestDataUtils('bug_suite', 'CommitbugTest').convert_exceldata_to_testdata()
 
     def setUp(self) -> None:
         super().setUp()
-        self.test_class_data = TestDataUtils('bug_suite', 'CommitbugTest').convert_exceldata_to_testdata()
 
+    @unittest.skipIf(test_class_data['commit_bug']['is_not'], '条件为真跳过')
     def test_commit_bug(self):
         test_function_data = self.test_class_data['commit_bug']
-        self._testMethodDoc = test_function_data['test_name']  # 测试用例备注
+        self._testMethodDoc = test_function_data['test_name'] + test_function_data['is_not']  # 测试用例备注
         login_action = LoginAction(self.base_page.driver)
         main_page = login_action.default_login()
 

@@ -12,6 +12,8 @@ import os
 import unittest
 from common import HTMLTestReportCN
 from common.config_utils import local_config
+from common.zip_utils import zip_dir
+from common.email_utils import EmailUtils
 
 
 current_path = os.path.dirname(__file__)
@@ -48,5 +50,9 @@ class RunAllCase:
 
 
 if __name__ == '__main__':
+    # dir_path = RunAllCase().run()
+    # report_zip_path = dir_path + '/../禅道自动化测试报告.zip'
+    # zip_dir(dir_path, report_zip_path)
+    # EmailUtils('python+selenium+unittest框架自动化测试报告', report_zip_path).send_mail()
     dir_path = RunAllCase().run()
-    print(dir_path)
+    EmailUtils('python+selenium+unittest框架自动化测试报告', dir_path).zip_send_mail()

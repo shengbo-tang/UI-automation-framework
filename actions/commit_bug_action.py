@@ -7,9 +7,8 @@
 @Date   ：2021/9/4 21:39
 =================================================="""
 # 提交bug动作类
-import time
-from element_infos.bug_page import BugPage
-from element_infos.main_page import MainPage
+from element_infos.bug.bug_page import BugPage
+from element_infos.main.main_page import MainPage
 
 
 class CommitBugAction:

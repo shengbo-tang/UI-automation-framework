@@ -7,8 +7,8 @@
 @Date   ：2021/9/4 19:07
 =================================================="""
 # 登录页面的功能操作
-from element_infos.login_page import LoginPage
-from element_infos.main_page import MainPage
+from element_infos.login.login_page import LoginPage
+from element_infos.main.main_page import MainPage
 from common.config_utils import local_config
 
 

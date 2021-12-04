@@ -10,7 +10,6 @@ import os
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from common.log_utils import logger
 from common.base_page import BasePage
 from common.element_data_utils import ElementDataUtils
 from common.config_utils import local_config

@@ -10,7 +10,6 @@ import os
 import time
 from common.element_data_utils import ElementDataUtils
 from common.base_page import BasePage
-from common.log_utils import logger
 
 
 class MainPage(BasePage):

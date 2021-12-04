@@ -7,8 +7,8 @@
 @Date   ：2021/9/4 23:11
 =================================================="""
 # 退出的动作类
-from element_infos.main_page import MainPage
-from element_infos.login_page import LoginPage
+from element_infos.main.main_page import MainPage
+from element_infos.login.login_page import LoginPage
 
 
 class QuitAction:

@@ -17,7 +17,7 @@ from common.test_data_utils import TestDataUtils
 
 class LoginCase(SeleniumBaseCase):
 
-    test_class_data = TestDataUtils('login_suite', 'LoginCase').convert_exceldata_to_testdata()
+    test_class_data = TestDataUtils('login_suite', 'login_case', 'LoginCase').convert_exceldata_to_testdata()
 
     def setUp(self) -> None:
         super().setUp()     # 继承SeleniumBaseCase类的setup

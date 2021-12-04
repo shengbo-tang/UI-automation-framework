@@ -18,7 +18,7 @@ from common.test_data_utils import TestDataUtils
 
 class QuitCase(SeleniumBaseCase):
 
-    test_class_data = TestDataUtils('main_suite', 'QuitTest').convert_exceldata_to_testdata()
+    test_class_data = TestDataUtils('main_suite', 'quit_case', 'QuitTest').convert_exceldata_to_testdata()
 
     def setUp(self) -> None:
         super().setUp()

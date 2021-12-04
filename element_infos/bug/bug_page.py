@@ -8,7 +8,6 @@
 =================================================="""
 from common.element_data_utils import ElementDataUtils
 from common.base_page import BasePage
-from common.log_utils import logger
 
 
 class BugPage(BasePage):
@@ -93,6 +92,3 @@ class BugPage(BasePage):
 
     def click_bug_save_button(self):
         self.click(self.bug_save_button)
-
-
-
